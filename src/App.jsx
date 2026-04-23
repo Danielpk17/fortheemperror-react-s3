@@ -1,12 +1,21 @@
 import Titulo from './Titulo'
 import Cartao from './Cartao'
 import Botao from './Botao'
+import Perfil from './Perfil'
+import Habilidade from './Habilidade'
 import { useState } from 'react'
 
 const tecnologias = [
   { id: 1, nome: "Git", descricao: "Versionamento de código" },
   { id: 2, nome: "React", descricao: "Biblioteca para interfaces" },
   { id: 3, nome: "Node.js", descricao: "JavaScript no servidor" },
+]
+
+const abilitys = [
+  {id:1, nome:"React"},
+  {id:2, nome:"MongoDB"},
+  {id:3, nome:"PHP"},
+  {id:4, nome:"JS"},
 ]
 
 const botonzoes = [
@@ -18,6 +27,7 @@ const botonzoes = [
 function App() {
   const [mostrar, setMostrar] = useState(true)
   const [mostrarBtn, setMostrarBtn] = useState(true)
+  const [mostrarHab, setMostrarHab] = useState(true)
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -38,6 +48,17 @@ function App() {
       ) : (
         <p>Nenhuma Botão visível</p>
       )}
+       <Perfil nome="Daniel Dal Piva" cargo="Dev" empresa="Questor" />
+
+      <Botao label={mostrarHab ? "Esconder Habilidades" : "Mostrar Habilidades"} aoClicar={() => setMostrarHab(!mostrarHab)} />
+        {mostrarHab ? (
+          abilitys.map((hab) => (
+            <Habilidade key={hab.id} nome={hab.nome}/>
+          ))
+        ) : (
+          <p>Habilidades Ocultas</p> 
+        )}
+
     </div>
   )
 }
