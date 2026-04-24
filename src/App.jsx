@@ -3,7 +3,10 @@ import Cartao from './Cartao'
 import Botao from './Botao'
 import Perfil from './Perfil'
 import Habilidade from './Habilidade'
+import Contador from './Contador'
 import { useState } from 'react'
+import Formulario from './Formulario'
+import ListaTarefas from './ListaTarefas'
 
 const tecnologias = [
   { id: 1, nome: "Git", descricao: "Versionamento de código" },
@@ -24,6 +27,7 @@ const botonzoes = [
   { id: 6, nome: "Cancelar" },
 ]
 
+
 function App() {
   const [mostrar, setMostrar] = useState(true)
   const [mostrarBtn, setMostrarBtn] = useState(true)
@@ -31,7 +35,7 @@ function App() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <Titulo texto="ForTheEmperror - React S1" />
+      {/* <Titulo texto="ForTheEmperror - React S1" />
       <Botao label={mostrar ? "Esconder" : "Mostrar"} aoClicar={() => setMostrar(!mostrar)} />
       {mostrar ? (
         tecnologias.map((tech) => (
@@ -57,7 +61,11 @@ function App() {
           ))
         ) : (
           <p>Habilidades Ocultas</p> 
-        )}
+        )} */}
+
+        <Contador/>
+        <Formulario/>
+        <ListaTarefas/>
 
     </div>
   )
