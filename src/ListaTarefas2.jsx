@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-function ListaTarefas () {
-
+function ListaTarefas2 () {
     const [texto, setTexto] = useState("");
     const [tarefas, setTarefas] = useState([]);
 
@@ -10,16 +9,15 @@ function ListaTarefas () {
         const novaTarefa = {
             id: Date.now(),
             nome: texto
-        };
+        }
 
-        setTarefas([...tarefas, novaTarefa]);
+        setTarefas([...tarefas, novaTarefa])
         setTexto("");
     }
 
     function remover (id) {
         setTarefas(tarefas.filter((t) => t.id !== id))
     }
-
 
     return (
 
@@ -29,26 +27,23 @@ function ListaTarefas () {
             <input 
             value={texto}
             onChange={(e) => setTexto(e.target.value)}
-            placeholder="Digite uma Tarefa"
-            />
-            
+            placeholder="Digite uma tarefa" />
+
             <button onClick={adicionar}>Adicionar</button>
 
-           {tarefas.length === 0 ? (
-        <p>Nenhuma tarefa</p>
-      ) : (
-        <ul>
-          {tarefas.map((t) => (
-            <li key={t.id}>
-              {t.nome}
-              <button onClick={() => remover(t.id)}>Remover</button>
-            </li>
-          ))}
-        </ul>
-      )}
+            {tarefas.length === 0} ? (
+                <p>Nenhuma Tarefas</p>
+            ) : (
+                <ul>
+                    {tarefas.map((t) => 
+                    <li key={t.id}>
+                    {t.nome}
+                    <button onClick={() => remover (t.id)}>Remover</button>
+                    </li>
+                    )}
+                </ul>
+            )
         </div>
 
     )
 }
-
-export default ListaTarefas

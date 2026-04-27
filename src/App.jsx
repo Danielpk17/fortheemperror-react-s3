@@ -7,6 +7,7 @@ import Contador from './Contador'
 import { useState } from 'react'
 import Formulario from './Formulario'
 import ListaTarefas from './ListaTarefas'
+import ListaTarefas3 from './ListaTarefas3'
 
 const tecnologias = [
   { id: 1, nome: "Git", descricao: "Versionamento de código" },
@@ -65,7 +66,9 @@ function App() {
 
         <Contador/>
         <Formulario/>
-        <ListaTarefas/>
+        {/* <ListaTarefas/>
+        <ListaTarefas2/> */}
+        <ListaTarefas3/>
 
     </div>
   )
