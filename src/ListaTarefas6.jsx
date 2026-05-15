@@ -37,6 +37,6 @@ function ListaTarefas6 () {
        
         </div>
     )
-}
+}''
 
 export default ListaTarefas6;
